@@ -25,7 +25,7 @@ namespace Recaptcha.Web
         private const string PARAM_SIZE = "size";
         private const string PARAM_TABINDEX = "tabindex";
         private const string PARAM_CALLBACK = "callback";
-        private const string PARAM_EXPIRED_CALLBACK = "expiredCallback";
+        private const string PARAM_EXPIRED_CALLBACK = "expired-callback";
 
         #endregion Fields
 
@@ -99,12 +99,12 @@ namespace Recaptcha.Web
 
             if (!string.IsNullOrEmpty(callback))
             {
-                dictAttributes.Add("data-" + PARAM_CALLBACK, callback.ToLower());
+                dictAttributes.Add("data-" + PARAM_CALLBACK, callback);
             }
 
             if (!string.IsNullOrEmpty(expiredCallback))
             {
-                dictAttributes.Add("data-" + PARAM_EXPIRED_CALLBACK, expiredCallback.ToLower());
+                dictAttributes.Add("data-" + PARAM_EXPIRED_CALLBACK, expiredCallback);
             }
 
             var sbAttributes = new StringBuilder();
