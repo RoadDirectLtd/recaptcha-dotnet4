@@ -3,10 +3,8 @@
  * LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  * =========================================================================================================================== */
 
-using Recaptcha.Web.Configuration;
 using System;
 using System.ComponentModel;
-using System.Threading.Tasks;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -37,7 +35,7 @@ namespace Recaptcha.Web.UI.Controls
         /// <exception cref="InvalidOperationException">The exception is thrown if the public key is not set.</exception>
         protected override void RenderContents(HtmlTextWriter output)
         {
-            if (this.DesignMode)
+            if (DesignMode)
             {
                 output.Write("<p>Recaptcha API Script Control</p>");
             }
@@ -45,7 +43,7 @@ namespace Recaptcha.Web.UI.Controls
             {
                 if (ApiVersion == null || ApiVersion == "2")
                 {
-                    var htmlHelper = new Recaptcha2HtmlHelper(this.SiteKey);
+                    var htmlHelper = new Recaptcha2HtmlHelper(SiteKey);
                     output.Write(htmlHelper.CreateApiScripttHtml(Language, UseSsl));
                 }
                 else

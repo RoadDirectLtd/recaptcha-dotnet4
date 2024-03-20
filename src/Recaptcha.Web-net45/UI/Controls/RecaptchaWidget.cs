@@ -8,7 +8,6 @@ using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Recaptcha.Web.UI.Controls
 {
@@ -45,7 +44,7 @@ namespace Recaptcha.Web.UI.Controls
                     ViewState["RecaptchaSecretKey"] = config.SecretKey;
                 }
 
-                return (String)ViewState["RecaptchaSecretKey"];
+                return (string)ViewState["RecaptchaSecretKey"];
             }
             set
             {
@@ -120,7 +119,7 @@ namespace Recaptcha.Web.UI.Controls
                     return _verificationHelper.Response;
                 }
 
-                return String.Empty;
+                return string.Empty;
             }
         }
 
@@ -163,9 +162,9 @@ namespace Recaptcha.Web.UI.Controls
         {
             base.OnLoad(e);
 
-            if (this.Page.IsPostBack)
+            if (Page.IsPostBack)
             {
-                _verificationHelper = new RecaptchaVerificationHelper(this.SecretKey);
+                _verificationHelper = new RecaptchaVerificationHelper(SecretKey);
             }
         }
 
@@ -176,7 +175,7 @@ namespace Recaptcha.Web.UI.Controls
         /// <exception cref="InvalidOperationException">The exception is thrown if the public key is not set.</exception>
         protected override void RenderContents(HtmlTextWriter output)
         {
-            if (this.DesignMode)
+            if (DesignMode)
             {
                 output.Write("<p>Recaptcha Control</p>");
             }
@@ -184,8 +183,8 @@ namespace Recaptcha.Web.UI.Controls
             {
                 if (ApiVersion == null || ApiVersion == "2")
                 {
-                    var htmlHelper = new Recaptcha2HtmlHelper(this.SiteKey);
                     output.Write(htmlHelper.CreateWidgetHtml(RenderApiScript, Theme, Language, TabIndex, Size, UseSsl));
+                    var htmlHelper = new Recaptcha2HtmlHelper(SiteKey);
                 }
                 else
                 {
@@ -208,7 +207,7 @@ namespace Recaptcha.Web.UI.Controls
         {
             if (_verificationHelper == null)
             {
-                _verificationHelper = new RecaptchaVerificationHelper(this.SecretKey);
+                _verificationHelper = new RecaptchaVerificationHelper(SecretKey);
             }
 
             return _verificationHelper.VerifyRecaptchaResponse();
@@ -224,7 +223,7 @@ namespace Recaptcha.Web.UI.Controls
         {
             if (_verificationHelper == null)
             {
-                _verificationHelper = new RecaptchaVerificationHelper(this.SecretKey);
+                _verificationHelper = new RecaptchaVerificationHelper(SecretKey);
             }
 
             return _verificationHelper.VerifyRecaptchaResponseTaskAsync();

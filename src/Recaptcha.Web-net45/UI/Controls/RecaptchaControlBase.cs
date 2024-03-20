@@ -4,10 +4,7 @@
  * =========================================================================================================================== */
 
 using Recaptcha.Web.Configuration;
-using System;
 using System.ComponentModel;
-using System.Threading.Tasks;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Recaptcha.Web.UI.Controls
@@ -37,7 +34,7 @@ namespace Recaptcha.Web.UI.Controls
                     ViewState["RecaptchaApiVersion"] = config.ApiVersion;
                 }
 
-                return (String)ViewState["RecaptchaApiVersion"];
+                return (string)ViewState["RecaptchaApiVersion"];
             }
 
             set
@@ -64,7 +61,7 @@ namespace Recaptcha.Web.UI.Controls
                     ViewState["RecaptchaSiteKey"] = config.SiteKey;
                 }
 
-                return (String)ViewState["RecaptchaSiteKey"];
+                return (string)ViewState["RecaptchaSiteKey"];
             }
             set
             {
@@ -90,7 +87,7 @@ namespace Recaptcha.Web.UI.Controls
                     ViewState["RecaptchaLanguage"] = config.Language;
                 }
 
-                return (String)ViewState["RecaptchaLanguage"];
+                return (string)ViewState["RecaptchaLanguage"];
             }
 
             set

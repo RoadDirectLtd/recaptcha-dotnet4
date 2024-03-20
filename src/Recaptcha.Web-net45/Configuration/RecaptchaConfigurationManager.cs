@@ -4,11 +4,8 @@
  * =========================================================================================================================== */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
+using System.Linq;
 
 namespace Recaptcha.Web.Configuration
 {
@@ -50,17 +47,17 @@ namespace Recaptcha.Web.Configuration
 
             if (ConfigurationManager.AppSettings.AllKeys.Contains("RecaptchaTheme"))
             {
-                Enum.TryParse<RecaptchaTheme>(ConfigurationManager.AppSettings["RecaptchaTheme"], out theme);
+                Enum.TryParse(ConfigurationManager.AppSettings["RecaptchaTheme"], out theme);
             }
 
             if (ConfigurationManager.AppSettings.AllKeys.Contains("RecaptchaSize"))
             {
-                Enum.TryParse<RecaptchaSize>(ConfigurationManager.AppSettings["RecaptchaSize"], out size);
+                Enum.TryParse(ConfigurationManager.AppSettings["RecaptchaSize"], out size);
             }
 
             if (ConfigurationManager.AppSettings.AllKeys.Contains("RecaptchaUseSsl"))
             {
-                Enum.TryParse<RecaptchaSslBehavior>(ConfigurationManager.AppSettings["RecaptchaUseSsl"], out useSsl);
+                Enum.TryParse(ConfigurationManager.AppSettings["RecaptchaUseSsl"], out useSsl);
             }
 
             if (ConfigurationManager.AppSettings.AllKeys.Contains("RecaptchaApiSource"))

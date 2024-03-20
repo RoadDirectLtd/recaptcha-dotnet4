@@ -35,12 +35,12 @@ namespace Recaptcha.Web
         /// <param name="siteKey">Sets the site key for the reCAPTCHA widget.</param>
         public Recaptcha2HtmlHelper(string siteKey)
         {
-            if (String.IsNullOrEmpty(siteKey))
+            if (string.IsNullOrEmpty(siteKey))
             {
                 throw new InvalidOperationException("Site key cannot be null or empty.");
             }
 
-            this.SiteKey = siteKey;
+            SiteKey = siteKey;
         }
 
         #endregion Constructors
@@ -105,7 +105,7 @@ namespace Recaptcha.Web
                 sbHtml.Append(CreateApiScripttHtml(language, useSsl));
             }
 
-            sbHtml.Append($"<div class=\"g-recaptcha\" {sbAttributes.ToString()}></div>");
+            sbHtml.Append($"<div class=\"g-recaptcha\" {sbAttributes}></div>");
 
             return sbHtml.ToString();
         }
@@ -162,7 +162,7 @@ namespace Recaptcha.Web
                 }
             }
 
-            return $"<script src=\"{url}{qs.ToString()}\" async defer></script>";
+            return $"<script src=\"{url}{qs}\" async defer></script>";
         }
 
         #endregion Public Methods

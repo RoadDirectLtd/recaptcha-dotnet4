@@ -72,15 +72,7 @@ namespace Recaptcha.Web.Mvc
             string apiVersion = null)
         {
             var config = RecaptchaConfigurationManager.GetConfiguration();
-            string ver;
-            if (!string.IsNullOrEmpty(apiVersion))
-            {
-                ver = apiVersion;
-            }
-            else
-            {
-                ver = config.ApiVersion;
-            }
+            var ver = !string.IsNullOrEmpty(apiVersion) ? apiVersion : config.ApiVersion;
 
             if (ver == null || ver == "2")
             {
@@ -113,15 +105,7 @@ namespace Recaptcha.Web.Mvc
             string apiVersion = null)
         {
             var config = RecaptchaConfigurationManager.GetConfiguration();
-            string ver;
-            if (!string.IsNullOrEmpty(apiVersion))
-            {
-                ver = apiVersion;
-            }
-            else
-            {
-                ver = config.ApiVersion;
-            }
+            var ver = !string.IsNullOrEmpty(apiVersion) ? apiVersion : config.ApiVersion;
 
             if (ver == null || ver == "2")
             {
@@ -138,22 +122,22 @@ namespace Recaptcha.Web.Mvc
         }
 
         /// <summary>
-        /// Gets an instance of the <see cref="RecaptchaVerificationHelper"/> class that can be used to verify user's response to the recaptcha's challenge. 
+        /// Gets an instance of the <see cref="RecaptchaVerificationHelper"/> class that can be used to verify user's response to the recaptcha's challenge.
         /// </summary>
         /// <param name="controller">The <see cref="System.Web.Mvc.Controller"/> object to which the extension method is added to.</param>
         /// <param name="secretKey">The private key required for making the recaptcha verification request.</param>
         /// <returns>Returns an instance of the <see cref="RecaptchaVerificationHelper"/> class.</returns>
-        public static RecaptchaVerificationHelper GetRecaptchaVerificationHelper(this System.Web.Mvc.Controller controller, string secretKey)
+        public static RecaptchaVerificationHelper GetRecaptchaVerificationHelper(this Controller _controller, string secretKey)
         {
             return new RecaptchaVerificationHelper(secretKey);
         }
 
         /// <summary>
-        /// Gets an instance of the <see cref="RecaptchaVerificationHelper"/> class that can be used to verify user's response to the recaptcha's challenge. 
+        /// Gets an instance of the <see cref="RecaptchaVerificationHelper"/> class that can be used to verify user's response to the recaptcha's challenge.
         /// </summary>
-        /// <param name="controller">The <see cref="System.Web.Mvc.Controller"/> object to which the extension method is added to.</param>
+        /// <param name="_controller">The <see cref="Controller"/> object to which the extension method is added to.</param>
         /// <returns>Returns an instance of the <see cref="RecaptchaVerificationHelper"/> class.</returns>
-        public static RecaptchaVerificationHelper GetRecaptchaVerificationHelper(this System.Web.Mvc.Controller controller)
+        public static RecaptchaVerificationHelper GetRecaptchaVerificationHelper(this Controller _controller)
         {
             var config = RecaptchaConfigurationManager.GetConfiguration();
             return new RecaptchaVerificationHelper(config.SecretKey);
