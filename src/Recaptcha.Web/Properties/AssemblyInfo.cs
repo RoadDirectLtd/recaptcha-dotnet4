@@ -9,11 +9,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Road Direct Recaptcha.Web")]
-[assembly: AssemblyDescription("A library that allows a developer to easily integrate Google's free Recaptcha service (the most popular captcha control) with an ASP.NET Web Forms or ASP.NET MVC Web application.")]
+[assembly: AssemblyTitle("Road Direct reCAPTCHA.NET")]
+[assembly: AssemblyDescription("A library that allows a developer to easily integrate Google's free Recaptcha service with an ASP.NET Web Forms or ASP.NET MVC Web application. Forked from tanveery.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Road Direct")]
-[assembly: AssemblyProduct("Recaptcha for .NET")]
+[assembly: AssemblyProduct("reCAPTCHA for .NET 4")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -24,7 +24,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4a54a43f-2e1a-41b2-a6fe-f496994f96cb")]
+[assembly: Guid("f46554d9-236b-459d-bec0-bc3249aeea98")]
 
 // Version information for an assembly consists of the following four values:
 //
