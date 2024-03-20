@@ -58,6 +58,8 @@ namespace Recaptcha.Web.Mvc
         /// <param name="tabIndex">The tabindex of the reCAPTCHA widget.</param>
         /// <param name="size">The size of the reCAPTCHA widget.</param>
         /// <param name="useSsl">Determines if SSL is to be used in Google reCAPTCHA API calls.</param>
+        /// <param name="callback">Sets the data-callback property of the recaptcha HTML.</param>
+        /// <param name="expiredCallback">Sets the data-expired-callback property of the recaptcha HTML.</param>
         /// <param name="apiVersion">Determines the version of the reCAPTCHA API.</param>
         /// <returns>Returns an instance of the IHtmlString type.</returns>
         public static IHtmlString RecaptchaWidget(
@@ -69,6 +71,8 @@ namespace Recaptcha.Web.Mvc
             int? tabIndex = null,
             RecaptchaSize? size = null,
             RecaptchaSslBehavior? useSsl = null,
+            string callback = null,
+            string expiredCallback = null,
             string apiVersion = null)
         {
             var config = RecaptchaConfigurationManager.GetConfiguration();
@@ -78,7 +82,16 @@ namespace Recaptcha.Web.Mvc
             {
                 var rHtmlHelper = new Recaptcha2HtmlHelper(siteKey ?? config.SiteKey);
                 var writer = new HtmlTextWriter(new StringWriter());
-                writer.Write(rHtmlHelper.CreateWidgetHtml(renderApiScript, theme != null ? (RecaptchaTheme)theme : config.Theme, language ?? config.Language, tabIndex != null ? (int)tabIndex : 0, size != null ? (RecaptchaSize)size : config.Size, useSsl != null ? (RecaptchaSslBehavior)useSsl : config.UseSsl));
+                writer.Write(rHtmlHelper.CreateWidgetHtml(
+                    renderApiScript,
+                    theme != null ? (RecaptchaTheme)theme : config.Theme,
+                    language ?? config.Language,
+                    tabIndex != null ? (int)tabIndex : 0,
+                    size != null ? (RecaptchaSize)size : config.Size,
+                    useSsl != null ? (RecaptchaSslBehavior)useSsl : config.UseSsl,
+                    callback,
+                    expiredCallback
+                ));
 
                 return htmlHelper.Raw(writer.InnerWriter.ToString());
             }

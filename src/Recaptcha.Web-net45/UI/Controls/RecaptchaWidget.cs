@@ -150,6 +150,50 @@ namespace Recaptcha.Web.UI.Controls
             }
         }
 
+        /// <summary>
+        /// Gets or sets the data-callback of recaptcha control.
+        /// </summary>
+        /// <remarks>The value of the <see cref="DataCallback"/> property is optional.</remarks>
+        [Bindable(true)]
+        [Category("Behavior")]
+        [DefaultValue("")]
+        [Localizable(false)]
+        public string DataCallback
+        {
+            get
+            {
+                string s = (string)ViewState["DataCallback"];
+                return s ?? string.Empty;
+            }
+
+            set
+            {
+                ViewState["DataCallback"] = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data-expired-callback of recaptcha control.
+        /// </summary>
+        /// <remarks>The value of the <see cref="DataExpiredCallback"/> property is optional.</remarks>
+        [Bindable(true)]
+        [Category("Behavior")]
+        [DefaultValue("")]
+        [Localizable(false)]
+        public string DataExpiredCallback
+        {
+            get
+            {
+                string s = (string)ViewState["DataExpiredCallback"];
+                return s ?? string.Empty;
+            }
+
+            set
+            {
+                ViewState["DataExpiredCallback"] = value;
+            }
+        }
+
         #endregion Properties
 
         #region Control Events
@@ -183,8 +227,8 @@ namespace Recaptcha.Web.UI.Controls
             {
                 if (ApiVersion == null || ApiVersion == "2")
                 {
-                    output.Write(htmlHelper.CreateWidgetHtml(RenderApiScript, Theme, Language, TabIndex, Size, UseSsl));
                     var htmlHelper = new Recaptcha2HtmlHelper(SiteKey);
+                    output.Write(htmlHelper.CreateWidgetHtml(RenderApiScript, Theme, Language, TabIndex, Size, UseSsl, DataCallback, DataExpiredCallback));
                 }
                 else
                 {

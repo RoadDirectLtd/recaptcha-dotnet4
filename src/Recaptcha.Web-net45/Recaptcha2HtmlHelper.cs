@@ -24,6 +24,8 @@ namespace Recaptcha.Web
         private const string PARAM_THEME = "theme";
         private const string PARAM_SIZE = "size";
         private const string PARAM_TABINDEX = "tabindex";
+        private const string PARAM_CALLBACK = "callback";
+        private const string PARAM_EXPIRED_CALLBACK = "expiredCallback";
 
         #endregion Fields
 
@@ -69,8 +71,11 @@ namespace Recaptcha.Web
         /// <param name="tabIndex">The tabindex of the reCAPTCHA widget.</param>
         /// <param name="size">The size of the reCAPTCHA widget.</param>
         /// <param name="useSsl">Determines if SSL is to be used in Google reCAPTCHA API calls.</param>
+        /// <param name="callback">Sets the data-callback property of the recaptcha HTML.</param>
+        /// <param name="expiredCallback">Sets the data-expired-callback property of the recaptcha HTML.</param>
         /// <returns>Returns the reCAPTCHA HTML as an instance of the <see cref="string"/> type.</returns>
-        public string CreateWidgetHtml(bool renderApiScript, RecaptchaTheme theme, string language, int tabIndex, RecaptchaSize size, RecaptchaSslBehavior useSsl)
+        public string CreateWidgetHtml(bool renderApiScript, RecaptchaTheme theme, string language, int tabIndex, RecaptchaSize size, RecaptchaSslBehavior useSsl,
+            string callback, string expiredCallback)
         {
             var dictAttributes = new Dictionary<string, string>
             {
@@ -90,6 +95,16 @@ namespace Recaptcha.Web
             if (size != RecaptchaSize.Default)
             {
                 dictAttributes.Add("data-" + PARAM_SIZE, size.ToString().ToLower());
+            }
+
+            if (!string.IsNullOrEmpty(callback))
+            {
+                dictAttributes.Add("data-" + PARAM_CALLBACK, callback.ToLower());
+            }
+
+            if (!string.IsNullOrEmpty(expiredCallback))
+            {
+                dictAttributes.Add("data-" + PARAM_EXPIRED_CALLBACK, expiredCallback.ToLower());
             }
 
             var sbAttributes = new StringBuilder();
