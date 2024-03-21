@@ -13,6 +13,7 @@
     <description>A library that allows a developer to easily integrate Google's free Recaptcha service with an ASP.NET Web Forms or ASP.NET MVC Web application. Forked from tanveery.</description>
     <copyright>Road Direct 2024</copyright>
     <tags>reCAPTCHA ASP.NET MVC C#</tags>
+    <repository type="git" url="https://github.com/RoadDirectLtd/recaptcha-dotnet4.git"></repository>
   </metadata>
   <files>
     <file src="icon.png" target="" />
