@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recaptcha.Web", "Recaptcha.Web-net45\Recaptcha.Web.csproj", "{47C0DB18-D553-41BE-98F9-6A5C08FAC0C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recaptcha.Web", "Recaptcha.Web\Recaptcha.Web.csproj", "{47C0DB18-D553-41BE-98F9-6A5C08FAC0C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

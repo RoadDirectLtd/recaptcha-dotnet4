@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>RoadDirect.reCAPTCHA.NET</id>
+    <version>1.0.0</version>
+    <title>Road Direct reCAPTCHA.NET</title>
+    <authors>Daniel Stocker</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <icon>icon.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/RoadDirectLtd/recaptcha-dotnet4</projectUrl>
+    <description>A library that allows a developer to easily integrate Google's free Recaptcha service with an ASP.NET Web Forms or ASP.NET MVC Web application. Forked from tanveery.</description>
+    <copyright>Road Direct 2024</copyright>
+    <tags>reCAPTCHA ASP.NET MVC C#</tags>
+  </metadata>
+  <files>
+    <file src="icon.png" target="" />
+    <file src="../../README.md" target="" />
+  </files>
+</package>
